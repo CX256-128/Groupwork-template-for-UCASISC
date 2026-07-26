@@ -1,0 +1,340 @@
+% !TEX program = xelatex
+\documentclass[12pt]{ctexart}
+% ------------------------
+% 页面
+% ------------------------
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+% ------------------------
+% 字体
+% ------------------------
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\setmonofont{Consolas}
+
+% ------------------------
+% 基础包
+% ------------------------
+\usepackage{multirow}
+\usepackage{soul}
+\usepackage[normalem]{ulem}
+\usepackage{lastpage}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage[backend=biber,style=gb7714-2015]{biblatex}
+% ------------------------
+% GitHub 颜色
+% ------------------------
+\definecolor{gh-bg}{HTML}{FFFFFF}
+\definecolor{gh-border}{HTML}{D0D7DE}
+\definecolor{gh-codebg}{HTML}{F6F8FA}
+\definecolor{gh-link}{HTML}{0969DA}
+\definecolor{gh-line}{HTML}{8B949E}
+
+\definecolor{gh-note}{HTML}{0969DA}
+\definecolor{gh-warning}{HTML}{9A6700}
+\definecolor{gh-tip}{HTML}{1A7F37}
+
+% ------------------------
+% 设置页眉与页尾
+% ------------------------
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2.5cm}
+\fancyhf{}
+\fancyhead[C]{}
+\fancyhead[L]{中国科学院大学·2026年春}
+\fancyhead[R]{网络空间安全导论}
+\fancyfoot[C]{第 \thepage 页，共 \pageref{LastPage} 页}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\baselinestretch}{1.2}
+\pagestyle{fancy}
+% ------------------------
+% 超链接
+% ------------------------
+\hypersetup{
+	colorlinks=true,
+	linkcolor=gh-link,
+	urlcolor=gh-link,
+	citecolor=gh-link,
+	hyperfootnotes=true
+}
+
+% ------------------------
+% 列表间距
+% ------------------------
+\setlist{
+	itemsep=4pt,
+	topsep=6pt
+}
+
+% ------------------------
+% tcolorbox
+% ------------------------
+\usepackage{tcolorbox}
+\tcbuselibrary{minted,skins,breakable}
+
+% ------------------------
+% GitHub 引用块
+% ------------------------
+\newtcolorbox{ghquote}{
+	enhanced,
+	colback=white,
+	colframe=gh-border,
+	borderline west={3pt}{0pt}{gh-border},
+	arc=2pt,
+	left=10pt,
+	right=10pt,
+	top=6pt,
+	bottom=6pt
+}
+
+% ------------------------
+% GitHub 提示框
+% ------------------------
+\newtcolorbox{note}{
+	enhanced,
+	colback=white,
+	colframe=gh-note,
+	borderline west={4pt}{0pt}{gh-note},
+	title=Note
+}
+
+\newtcolorbox{warning}{
+	enhanced,
+	colback=white,
+	colframe=gh-warning,
+	borderline west={4pt}{0pt}{gh-warning},
+	title=Warning
+}
+
+\newtcolorbox{tip}{
+	enhanced,
+	colback=white,
+	colframe=gh-tip,
+	borderline west={4pt}{0pt}{gh-tip},
+	title=Tip
+}
+
+% ------------------------
+% 代码块
+% ------------------------
+\usepackage{minted}
+
+\newtcblisting{codeblock}[2][]{
+	listing engine=minted,
+	minted language=#2,
+	minted options={
+		linenos,
+		breaklines,
+		fontsize=\small,
+		numbersep=10pt,
+		xleftmargin=15pt
+	},
+	colback=gh-codebg,
+	colframe=gh-border,
+	arc=6pt,
+	boxrule=0.5pt,
+	left=6pt,
+	right=6pt,
+	top=6pt,
+	bottom=6pt,
+	listing only,
+	breakable,
+	#1
+}
+
+% ------------------------
+% 行内代码
+% ------------------------
+\newtcbox{\inlinecode}{
+	on line,
+	boxrule=0pt,
+	colback=gh-codebg,
+	arc=4pt,
+	left=3pt,
+	right=3pt,
+	top=2pt,
+	bottom=2pt
+}
+
+% ------------------------
+% 标题样式
+% ------------------------
+\titleformat{\section}
+{\Large\bfseries}
+{\thesection}{0.5em}{}
+
+\titleformat{\subsection}
+{\large\bfseries}
+{\thesubsection}{0.5em}{}
+
+
+\renewcommand{\theFancyVerbLine}{\color{gh-line}\small\arabic{FancyVerbLine}}
+
+\newtheorem{application}{应用}
+\newtheorem{problem}{问题}
+\newtheorem{analogy}{分析}
+\newtheorem{experiment}{实验}
+
+% ------------------------
+% 修改表头信息
+% ------------------------
+%改这里可以修改实验报告表头的信息
+\newlength{\namegap} % 定义一个namegap的变量用来调节name之间的宽度，可以自由地修改这里来保证美观
+\setlength{\namegap}{4.4em} 
+\newcommand{\name}{
+	fa\footnotemark[1] \hspace*{\namegap} 
+	her\footnotemark[2] \hspace*{\namegap} 
+	tms\footnotemark[3] \hspace*{\namegap} 
+	tkz\footnotemark[4] \hspace*{\namegap} 
+	aht\footnotemark[5] 
+}
+\newlength{\numgap} % 定义一个numgap的变量用来调节学号之间的宽度
+\setlength{\numgap}{0.9em} 
+\newcommand{\studentNum}{
+	\scriptsize 
+	\textbf{****K80099*****} \hspace*{\numgap}
+	\textbf{****K80099*****} \hspace*{\numgap} 
+	\textbf{****K80099*****} \hspace*{\numgap}
+	\textbf{****K80099*****} \hspace*{\numgap}
+	\textbf{****K80099*****} 
+}
+\newcommand{\expNum}{ICS-groupwork1}
+\newcommand{\expName}{探究人工智能技术对网络空间安全的影响}
+\newcommand{\finishdate}{xxxx年xx月xx日}
+%直接使用语句 \tabularcenter{  } 针对性地对表格轴某一个格子居中
+\newcommand{\tabularcenter}[1]{\multicolumn{1}{c}{#1}}
+% ------------------------
+% 文档开始
+% ------------------------
+\addbibresource{template_reference.bib}
+%上面是调用外置的bib文件来执行引用
+\begin{document}
+	
+	\begin{center}
+		\LARGE 中国科学院大学·网络空间安全导论xx报告
+	\end{center}
+	
+	\begin{center}
+		\emph{实验序号} \underline{\makebox[9.5em][c]{\expNum}}\hspace*{10em}
+		\emph{最后修改日期} \underline{\makebox[10em][c]{\finishdate}}\\
+		\emph{实验专题} \underline{\makebox[36em][c]{\expName}}\\
+		\makebox[4em][l]{\emph{小组成员\footnotemark[0]}} \underline{\makebox[36em][c]{\name}}\\
+		\makebox[4em][l]{\emph{对应学号}} \underline{\makebox[36em][c]{\studentNum}}
+		{\noindent}
+		\rule[8pt]{17cm}{0.2em}
+	\end{center}
+	\footnotetext[0]{作者排名不分先后，按姓名拼音排序。}
+	\footnotetext[1]{fa，学号(****K80099*****)，贡献：}
+	\footnotetext[2]{her，学号(****K80099*****)，贡献：}
+	\footnotetext[3]{tms，学号(****K80099*****)，贡献：}
+	\footnotetext[4]{tkz，学号(****K80099*****)，贡献：}
+	\footnotetext[5]{aht，学号(****K80099*****)，贡献：}
+	\begin{abstract}
+		这是一个摘要
+	\end{abstract}
+	\begin{warning}
+		注意这个文件的命名格式是： 名字列表\_第<n>次大作业\_<实验标题>.pdf\\
+		但是使用biber对中文的文件名不支持，所以推荐最后再手动处理或脚本(Renamer.py/.bat)处理，一开始就统一命名成homework<n>.tex的形式
+	\end{warning}
+	\section{这是第一个大Section}
+	\subsection{这是第一个大Section下的第一个小section}
+	\subsubsection{下面还有一个更小的section}
+	\section{这是第二个Section}
+	\section{展示引用}
+	网络空间安全\cite{icsbook}
+	\section{Code Example}
+	
+	\begin{codeblock}{bash}
+git clone https://github.com/user/project
+cd project
+make
+	\end{codeblock}
+	下面是C++代码的展示
+	\begin{codeblock}{C++}
+#include<iostream>
+using namespace std;
+long long map[42][42] = { };
+int horse_x,horse_y;
+int dest_x,dest_y;
+int iarray[4] = {-2 , -1 , 1 , 2};
+int abx(int x){    return x>=0 ? x : -x;}
+void mark(){
+    map[0][0]=1;
+    for(int i=0;i<4;i++){
+        for(int j=0;j<4;j++){
+            if(abx(iarray[i])!=abx(iarray[j]) && horse_y+iarray[j] >=0 && horse_x+iarray[i]>=0){
+                map[horse_x+iarray[i]][horse_y+iarray[j]]=-1;
+            }
+        }
+    }
+    map[horse_x][horse_y] = -1;
+}
+int main(){
+    cin>>dest_x>>dest_y>>horse_x>>horse_y;
+    mark();
+    for(int i=0;i<dest_x+dest_y+1;i++){
+        for(int j=0;j<=i;j++){
+            if(map[j][i-j]!=-1){
+                if(map[j][i-j+1]!=-1)
+                    map[j][i-j+1] += map[j][i-j];
+                if(map[j+1][i-j]!=-1)
+                    map[j+1][i-j] += map[j][i-j];
+            }
+        }
+    }
+    cout<<map[dest_x][dest_y];
+    return 0;
+}
+	\end{codeblock}
+	\twocolumn %表示从这里开始之后都是两栏格式的
+	\section{Quote}
+	
+	\begin{ghquote}
+		This is a style quote block.
+	\end{ghquote}
+	
+	\section{Admonitions}
+	
+	\begin{note}
+		This is a style note.
+	\end{note}
+	
+	\begin{warning}
+		Be careful with this command.
+	\end{warning}
+	
+	\begin{tip}
+		Use virtual environments.
+	\end{tip}
+	
+	\section{Table}
+	
+	\begin{center}
+		\begin{tabular}{lll}
+			\toprule
+			 \tabularcenter{Name} & \tabularcenter{Language} & \tabularcenter{Stars} \\
+			\midrule
+			Project C & BrainFuck(.,/>) & 10000 \\
+			Project A & C++ & 1000 \\
+			Project B & Python & 850 \\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+	
+	\section{List}
+	
+	\begin{itemize}
+		\item Item one
+		\item Item two
+		\item Item three
+	\end{itemize}
+	%下面是调用外置的bib文件来执行引用
+	\printbibliography
+\end{document}

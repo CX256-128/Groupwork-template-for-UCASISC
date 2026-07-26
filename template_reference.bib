@@ -1,0 +1,162 @@
+% ============================================================
+% 参考文献 BibTeX 模板
+% 使用说明：
+%   - 每条记录以 @类型{引用标签, 开头
+%   - 字段格式为 字段名 = {值},
+%   - 建议统一使用大括号 {} 包围值，避免引号混淆
+%   - 可选字段可按需删除或留空
+% ============================================================
+
+% ---------- 期刊论文 ----------
+@article{引用标签1,
+	author       = {作者列表，格式：姓 名 and 姓 名},
+	title        = {论文标题},
+	journal      = {期刊名称},           
+	year         = {年份},               
+	volume       = {卷号},               
+	number       = {期号},               
+	pages        = {起始页--终止页},     
+	month        = {月份},               
+	note         = {备注（如DOI、URL等）},
+	issn         = {国际标准刊号},       
+	doi          = {数字对象唯一标识符}, 
+	language     = {语言},               
+	publisher    = {出版社}              
+}
+
+% ---------- 会议论文 ----------
+@inproceedings{引用标签2,
+	author       = {作者列表},
+	title        = {论文标题},
+	booktitle    = {会议论文集名称},      
+	year         = {年份},                
+	editor       = {编者列表},            
+	volume       = {卷号},                
+	number       = {期号},                
+	series       = {丛书名称},            
+	pages        = {起始页--终止页},      
+	address      = {会议地点},            
+	month        = {月份},                
+	organization = {主办机构},            
+	publisher    = {出版社},              
+	note         = {备注},                
+	doi          = {DOI},                
+	isbn         = {国际标准书号}         
+}
+
+% ---------- 书籍 ----------
+@book{引用标签3,
+	author       = {作者列表},
+	editor       = {编者列表},
+	title        = {书名},             
+	publisher    = {出版社},           
+	year         = {年份},             
+	volume       = {卷号},             
+	number       = {期号},             
+	series       = {丛书名称},         
+	address      = {出版地},           
+	edition      = {版次},             
+	month        = {月份},             
+	note         = {备注},             
+	isbn         = {ISBN},             
+	url          = {网址}              
+}
+
+% ---------- 书籍中的章节 ----------
+@incollection{引用标签4,
+	author       = {章节作者},
+	title        = {章节标题},           
+	booktitle    = {书名},               
+	publisher    = {出版社},             
+	year         = {年份},               
+	editor       = {编者列表},           
+	volume       = {卷号},               
+	number       = {期号},               
+	series       = {丛书名称},           
+	pages        = {起始页--终止页},     
+	address      = {出版地},             
+	edition      = {版次},               
+	month        = {月份},               
+	note         = {备注},               
+	isbn         = {ISBN}                
+}
+
+% ---------- 技术报告（含预印本）----------
+@techreport{引用标签5,
+	author       = {作者列表},
+	title        = {报告标题},           
+	institution  = {发布机构},           
+	year         = {年份},               
+	number       = {报告编号},           
+	type         = {报告类型},           
+	address      = {机构地址},           
+	month        = {月份},               
+	note         = {备注（如URL、ePrint编号）} 
+}
+
+% ---------- 学位论文 ----------
+@phdthesis{引用标签6,   % 博士论文
+	author       = {作者},
+	title        = {论文标题},
+	school       = {学校名称},            
+	year         = {年份},                
+	type         = {学位类型},            
+	address      = {学校所在地},          
+	month        = {月份},                
+	note         = {备注}                 
+}
+
+@mastersthesis{引用标签7, % 硕士论文
+	author       = {作者},
+	title        = {论文标题},
+	school       = {学校名称},           
+	year         = {年份},               
+	type         = {学位类型},           
+	address      = {学校所在地},         
+	month        = {月份},               
+	note         = {备注}                
+}
+
+% ---------- 在线资源 / 杂项 ----------
+@misc{引用标签8,
+	author       = {作者（可为空）},
+	title        = {标题},
+	howpublished = {发布方式（如“\url{http://...}”）},
+	year         = {年份},
+	month        = {月份},
+	note         = {备注（如访问日期）},
+	url          = {网址}                 
+}
+
+% ---------- 会议论文集（整本）----------
+@proceedings{引用标签9,
+	title        = {论文集名称},          
+	year         = {年份},                
+	editor       = {编者列表},            
+	publisher    = {出版社},              
+	volume       = {卷号},                
+	number       = {期号},                
+	series       = {丛书名称},            
+	address      = {会议地点},            
+	month        = {月份},                
+	note         = {备注}                 
+}
+% --------------------------------------
+% ----------     举个例子      ----------
+% --------------------------------------
+@book{icsbook,
+	author       = {石问昌 and 李建华 and 李晖 and 张焕国 and 杜瑞颖},
+	editor       = {刘建伟},
+	title        = {网络空间安全导论},                
+	publisher    = {清华大学出版社},             
+	year         = {2020},              
+	volume       = {},
+	pages        = {pp. 1-40},               
+	number       = {},               
+	series       = {网络空间安全重点规划丛书},           
+	address      = {北京市},            
+	edition      = {2020年},               
+	month        = {Sep.},               
+	note         = {},             
+	isbn         = {978-7-302-56297-9},            
+}
