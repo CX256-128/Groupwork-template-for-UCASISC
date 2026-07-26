@@ -12,14 +12,18 @@
 在 `template.tex` 中找到以下命令区域，按需修改：
 
 ```latex
-\newcommand{\name}{ 姓名1 \hspace*{2.5em} 姓名2 \hspace*{2.5em} ... }
-\newcommand{\studentNum}{ \scriptsize \textbf{学号1} \hspace*{0.9em} \textbf{学号2} ... }
+\newlength{\namegap} % 定义一个namegap的变量用来调节name之间的宽度，可以自由地修改这里来保证美观
+\setlength{\namegap}{4.4em} 
+\newcommand{\name}{ 姓名1 \namegap 姓名2 \namegap ... }
+\newlength{\numgap} % 定义一个numgap的变量用来调节学号之间的宽度
+\setlength{\numgap}{0.9em} 
+\newcommand{\studentNum}{ \scriptsize \textbf{学号1} \numgap \textbf{学号2} ... }
 \newcommand{\expNum}{ICS-groupwork1}
 \newcommand{\expName}{探究人工智能技术对网络空间安全的影响}
 \newcommand{\finishdate}{2026年12月12日}
 ```
-- `\name`：小组成员姓名，用 `\hspace*{宽度}` 控制间距。
-- `\studentNum`：对应学号，同样可调节间距。
+- `\name`：小组成员姓名，用 `\namegap` 控制间距 ，可以直接修改其中 `\setlength{\namegap}{4.4em}` 后面的数字来修改长度 。
+- `\studentNum`：对应学号，用 `\numgap` 控制间距 ，可以直接修改其中 `\setlength{\numgap}{0.9em}` 后面的数字来修改长度。
 - `\expNum`：实验序号或编号。
 - `\expName`：实验专题名称。
 - `\finishdate`：最后修改日期。
